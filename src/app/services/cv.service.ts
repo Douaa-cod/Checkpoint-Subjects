@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Personne } from '../Model/Personne'
 
 @Injectable({
   providedIn: 'root'
 })
 export class CvService {
-  personnes : Personne []
+  personnes : Personne [];
+  nbClick = 0;
+  clickSubject = new Subject<number>();
+  selectItemSubject = new Subject<Personne>();
   constructor() {
     this.personnes = [
       new Personne (1, 'Yazidi', 'Douaa', 29, 11111111, 'Développeur', "capture1.png"),
@@ -23,6 +27,17 @@ export class CvService {
       );
 
    }
+   addPerson(person : Personne){
+     if (person){
+       const id = this.personnes[this.personnes.length-1].id
+       person.id = id + 1
+       this.personnes.push(person)
+       console.log(this.personnes)
+     }else
+     {
+       alert ("Nothing to add")
+     }
+   }
    deletePersonById(person : Personne){
     let index;
     index = this.personnes.indexOf(person)
@@ -35,5 +50,12 @@ export class CvService {
       console.log(this.personnes)
       return 1
     }
+   }
+   click(){
+     this.nbClick ++;
+     this.clickSubject.next(this.nbClick);
+   }
+   clickOnItem( personne : Personne) {
+    this.selectItemSubject.next(personne);
    }
 }
