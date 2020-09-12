@@ -4,7 +4,6 @@
   <app-item-cv
     *ngFor= " let personEach of dataParentPersonnes"
     [dataPersonneItem]="personEach"
-    (sendDataPerson)="treatDataPerson($event)"
   >
   </app-item-cv>
 </ul>

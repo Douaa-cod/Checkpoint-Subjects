@@ -10,16 +10,15 @@ import { CvService } from '../services/cv.service'
 })
 export class CvComponent implements OnInit {
   Personnes  : Personne []
-  PersonToShow : Personne
   constructor(
     private cvService : CvService
   ) { }
 
   ngOnInit(): void {
-    this.Personnes = this.cvService.personnes
-  }
-  treatDataPerson(dataPerson){
-    this.PersonToShow = dataPerson
+    this.Personnes = this.cvService.personnes;
+    this.cvService.clickSubject.subscribe(
+      (nbClick) => console.log(nbClick)
+    )
   }
 
 }

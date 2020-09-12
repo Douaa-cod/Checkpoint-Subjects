@@ -6,6 +6,7 @@ import { TodoComponent } from './todo/todo.component';
 import { ColorChangeComponent } from './color-change/color-change.component'
 import { DetailCvComponent } from './detail-cv/detail-cv.component';
 import { DetailPersonComponent } from './detail-person/detail-person.component';
+import { AddPersonComponent } from './add-person/add-person.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,10 @@ const routes: Routes = [
       {
         path: '',
         component: CvComponent
+      },
+      {
+        path: 'addPerson',
+        component: AddPersonComponent
       },
       {
         path: ':id',
@@ -29,7 +34,7 @@ const routes: Routes = [
   {
     path: 'Mini-words',
     component: ColorChangeComponent
-  },
+  }
 ];
 
 @NgModule({

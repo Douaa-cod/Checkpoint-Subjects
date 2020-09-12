@@ -8,13 +8,9 @@ import { Personne } from '../Model/Personne';
 })
 export class ListCvComponent implements OnInit {
 @Input() dataParentPersonnes: Personne[]
-@Output() sendDataPerson = new EventEmitter()
   constructor() { }
 
   ngOnInit(): void {
-  }
-  treatDataPerson(dataPerson){
-    this.sendDataPerson.emit(dataPerson)
   }
 
 }

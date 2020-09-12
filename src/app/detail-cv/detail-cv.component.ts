@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Personne } from '../Model/Personne';
+import { CvService } from '../services/cv.service';
 import { EmbaucheService } from '../services/embauche.service'
 
 @Component({
@@ -12,13 +13,17 @@ import { EmbaucheService } from '../services/embauche.service'
   ]
 })
 export class DetailCvComponent implements OnInit {
-@Input() dataPerson : Personne
+  dataPerson : Personne
   constructor(
     private embaucheService : EmbaucheService,
-    private router : Router
+    private router : Router,
+    private cvService : CvService
   ) { }
 
   ngOnInit(): void {
+    this.cvService.selectItemSubject.subscribe(
+      (personne) => this.dataPerson = personne
+    )
   }
   embaucher(personne: Personne){
     this.embaucheService.embaucher(personne)

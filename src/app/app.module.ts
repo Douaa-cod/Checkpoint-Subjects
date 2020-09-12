@@ -16,6 +16,7 @@ import { DefaultImagePipe } from './pipes/default-image.pipe';
 import { RouterSimulatorComponent } from './router-simulator/router-simulator.component';
 import { HeaderComponent } from './header/header.component';
 import { DetailPersonComponent } from './detail-person/detail-person.component';
+import { AddPersonComponent } from './add-person/add-person.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DetailPersonComponent } from './detail-person/detail-person.component';
     ColorWordsDirective,
     RouterSimulatorComponent,
     HeaderComponent,
-    DetailPersonComponent
+    DetailPersonComponent,
+    AddPersonComponent
   ],
   imports: [
     BrowserModule,
